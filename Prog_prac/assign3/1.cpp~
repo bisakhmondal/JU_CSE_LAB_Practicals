@@ -1,0 +1,23 @@
+#include<bits/stdc++.h>
+#define max(a,b) ((a)>(b))?(a):(b) 
+//t0emplate<typename T>
+inline int maxi(int a,int b){
+if(a>b)
+return a;
+return b;
+}
+using namespace std;
+int main(){
+cout<<"Enter two parameters"<<endl;
+int a,b;
+cin>>a>>b;
+int c=max(a,b);
+cout<<c<<endl;
+string s1,s2;
+cin>>s1>>s2;
+string s=max(s1,s2);
+cout<<s<<endl;
+cout<<maxi(a,b)<<endl;
+return 0;
+}
+

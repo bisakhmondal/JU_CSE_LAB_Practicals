@@ -1,0 +1,68 @@
+#include<bits/stdc++.h>
+using namespace std;
+class TIME{
+string hr,min,sec,ap;
+public:
+void inputAM(){
+cout<<"enter hr min sec in 12 hr format"<<endl;
+cin>>hr>>min>>sec;
+cout<<"AM/PM";
+cin>>ap;
+cout<<"input recorded"<<endl;
+}
+void input24(){
+cout<<"enter hr min sec in 24 hr format"<<endl;
+cin>>hr>>min>>sec;
+cout<<"input recorded"<<endl;
+}
+
+TIME(){
+int ch;
+cout<<"enter the choice\n1:in AM/PM Format\n2.in 24 hrs\n";
+cin>>ch;
+if(ch==1)
+inputAM();
+else input24();
+}
+
+void displayAM(){
+cout<<hr<<" : "<<min<<" : "<<sec<<" "<<ap<<endl;
+}
+void display24(){
+cout<<hr<<" : "<<min<<" : "<<sec<<endl;
+}
+
+void not_sure(){
+
+if(strcmp(ap,"AM")==0)
+{
+cout<<hr<<" : "<<min<<" : "<<sec<<" "<<ap<<endl;
+cout<<hr<<" : "<<min<<" : "<<sec<<endl;
+}
+else if(strcmp(ap,"PM")==0){
+int x=0;
+stringstream g(hr)>>x;
+x+=12;
+cout<<hr<<" : "<<min<<" : "<<sec<<" "<<ap<<endl;
+cout<<x<<" : "<<min<<" : "<<sec<<endl;
+}
+else
+cout<<hr<<" : "<<min<<" : "<<sec<<endl;
+}
+}
+
+int main(){
+TIME t;
+cout<<"display result\n1:in 24 hrs\n2:in AM/PM 3:not sure\n"<<endl;
+int choice;
+cin>>choice;
+if(choice==1)
+t.display24();
+if(choice==2)
+t.displayAM();
+if(choice==3)
+t.not_sure();
+return 0;
+}
+ 
+

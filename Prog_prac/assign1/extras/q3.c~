@@ -1,0 +1,32 @@
+/*program to print 2D array using pointers statically
+Shubham Kumar, roll-0018105601089 , date-08/08/19*/
+#include<stdio.h>
+#include<stdlib.h>
+int main(){
+int r,c;
+printf("Enter number of rows in an array ");
+scanf("%d",&r);
+printf("Enter number of columns in an array ");
+scanf("%d",&c);
+int a[r][c],i=0,j=0;//initializing arary of size r*c
+for(i=0;i<r;i++){
+for(j=0;j<c;j++){
+scanf("%d ",(*(a+i)+j));//accepting the elements of an 2d array
+}
+}
+int (*p)[c]=a;//statically allocating pointer to an array
+printf("Using pointer to an array \n");
+for(i=0;i<r;i++){
+for(j=0;j<c;j++){
+printf("%d ",*(*(p+i)+j));//printing the elements of an array
+}
+printf("\n");
+}
+printf("Using array of pointer \n");
+for(i=0;i<r;i++){
+for(j=0;j<c;j++){
+printf("%d ",*(*(a+i)+j));//printing the elements of an array
+}
+printf("\n");
+}
+}
