@@ -66,7 +66,7 @@ class array1{
 
 int main(int argc, char const *argv[])
 {
-array1<char> arr;
+array1<int> arr;
 arr.input();
 arr.find_max();
 arr.find_sum();
