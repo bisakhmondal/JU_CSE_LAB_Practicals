@@ -1,7 +1,8 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
-
+#define max(a,b) ((a>b)?a:b)
+#define min(a,b) ((a<b)?a:b)
 typedef struct poly{
     int x,y;
     struct poly* next;
@@ -29,7 +30,7 @@ void add_vertex(poly**head,int x,int y){
 void get_abc(int x1,int y1,int x2,int y2,int *a,int *b,int *c){
 *a=(y2-y1);
 *b=(x1-x2);
-*c=(y1*(x1-x2)-x1*(y1-y2));
+*c=(*a)*x1+(*b)*y1;
 return;
 }
 
@@ -38,10 +39,18 @@ int check_intersection(int x1,int y1,int x2,int y2,int x3,int y3,int x4,int y4){
     get_abc(x1,y1,x2,y2,&A,&B,&C);
     get_abc(x3,y3,x4,y4,&a,&b,&c);
     printf("%d %d %d %d %d %d\n",A,a,B,b,C,c);
-    float int_x=(b*C-B*c)/(A*b-a*B);
-    float int_y=(a*C-A*c)/(A*b-a*B);
+    if(a*B==A*b){
+        printf("parallel lines\n");
+        if(c!=C){
+            return 0;
+        }
+        else return 1;
 
-    if((int_x>=(float)x1 && int_x<=(float)x2) && (int_x>=(float)x3 && int_x<=(float)x4) && (int_y>=(float)y1 && int_y<=(float)y2) && (int_y>=(float)y3 && int_y<=(float)y4))
+    }
+    float int_x=(b*C-B*c)/(A*b-a*B);
+    float int_y=(a*C-A*c)/(a*B-A*b);
+
+    if(int_x>=min(x1,x2) && int_x<=max(x1,x2) &&int_x>=min(x3,x4) && int_x<=max(x3,x4) &&int_y>=min(y1,y2) && int_y<=max(y1,y2)&&int_y>=min(y3,y4) && int_y<=max(y3,y4))
     return 1;
     return 0;
 }
