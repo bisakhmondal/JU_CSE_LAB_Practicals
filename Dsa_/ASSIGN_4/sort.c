@@ -3,7 +3,7 @@
 #include<stdbool.h>
 #include<string.h>
 #include<time.h>
-#define num 50000
+#define num 10000
 void swap(int *a,int *b){
     int temp=*a;
     *a=*b;
