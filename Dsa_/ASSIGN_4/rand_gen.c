@@ -2,13 +2,13 @@
 #include<stdlib.h>
 #include<stdbool.h>
 #include<string.h>
-#define num 50000
+#define num 80000
 void rand_gen(FILE* fp){
-    int ini=(rand()%20)<<31;
+    // int ini=(rand()%20)<<31;
 for(int i=0;i<num;i++){
-    int new=ini-rand()%200;
+    int new=/*ini-*/rand()%200;
 fprintf(fp,"%d\n",new);
-ini=new;
+// ini=new;
 }
 }
 
